@@ -11,9 +11,11 @@ class ShellSort
 
     def sort
         n = set.size
-        gap = n / 2
+        gap = 1
 
-        while (gap > 0) do
+        gap = (3 * gap) + 1 while (gap < n/3)
+
+        while (gap >= 1) do
             (gap...n).each do |i|
                 j = i
                 while j >= gap && less(set, j, j-gap) do
@@ -21,7 +23,7 @@ class ShellSort
                     j -= gap
                 end
             end
-            gap /= 2
+            gap /= 3
         end
         
         set
