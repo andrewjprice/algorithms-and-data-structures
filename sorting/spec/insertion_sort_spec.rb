@@ -7,7 +7,7 @@ describe InsertionSort do
     let(:sorted_list) { [1,2,3,4,5] }
 
     describe '#sort' do
-        it 'sorts list' do
+        it 'returns list in asc order' do
             expect(subject.sort).to eq sorted_list
         end
     end
