@@ -1,3 +1,8 @@
+# Recursive Top Down Implementation
+# Time Complexity: O(nlogn)
+# Space: O(n)
+# Divide and conquer, useful for sorting linked lists
+
 require_relative 'sort.rb'
 
 class MergeSort

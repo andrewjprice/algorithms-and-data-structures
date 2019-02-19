@@ -1,3 +1,7 @@
+# Time Complexity: O(nlogn), Worst Case O(n^2)
+# Space: O(1)
+# Divide and conquer 
+
 require_relative 'sort.rb'
 
 class QuickSort

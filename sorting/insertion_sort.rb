@@ -1,3 +1,7 @@
+# Time Complexity: Quadratic O(n^2)
+# Space: O(1)
+# Useful when number of elements is small
+
 require_relative 'sort.rb'
 
 class InsertionSort
@@ -14,7 +18,7 @@ class InsertionSort
         
         n.times do |i|
             (i+1).upto(n) do |j|
-                swap(set, i, j) if !less(set, i, j)
+                swap(set, i, j) if less(set, j, i)
             end
         end
         

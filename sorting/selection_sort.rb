@@ -1,3 +1,7 @@
+# Time Complexity: O(n^2)
+# Space: O(1)
+# Useful when number of elements is small
+
 require_relative 'sort.rb'
 
 class SelectionSort
