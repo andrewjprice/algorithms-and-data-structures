@@ -1,6 +1,6 @@
-require_relative '../shell_sort.rb'
+require_relative '../../sorting/heap_sort.rb'
 
-describe ShellSort do
+describe HeapSort do
     subject { described_class.new(unsorted_list) }
 
     let(:unsorted_list) { [3,5,1,2,4] }

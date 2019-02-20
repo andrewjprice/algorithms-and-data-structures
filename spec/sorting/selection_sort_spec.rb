@@ -1,6 +1,6 @@
-require_relative '../quick_sort.rb'
+require_relative '../../sorting/selection_sort.rb'
 
-describe QuickSort do
+describe SelectionSort do
     subject { described_class.new(unsorted_list) }
 
     let(:unsorted_list) { [3,5,1,2,4] }

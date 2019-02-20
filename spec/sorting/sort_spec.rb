@@ -1,4 +1,4 @@
-require_relative '../sort.rb'
+require_relative '../../sorting/sort.rb'
 
 describe Sort do
     subject { Class.new.include(described_class).new }

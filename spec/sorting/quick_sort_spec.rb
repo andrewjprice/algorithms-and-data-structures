@@ -1,6 +1,6 @@
-require_relative '../heap_sort.rb'
+require_relative '../../sorting/quick_sort.rb'
 
-describe HeapSort do
+describe QuickSort do
     subject { described_class.new(unsorted_list) }
 
     let(:unsorted_list) { [3,5,1,2,4] }
