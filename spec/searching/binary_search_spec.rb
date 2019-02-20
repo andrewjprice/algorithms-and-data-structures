@@ -5,9 +5,15 @@ describe BinarySearch do
 
     let(:sorted_list) { [0,40,50,60,70] }
 
-    describe '#search' do
+    describe '#recursive_search' do
         it 'returns key index' do
-            expect(subject.search).to eq 1
+            expect(subject.recursive_search).to eq 1
+        end
+    end
+
+    describe '#iterative_search' do
+        it 'returns key index' do
+            expect(subject.iterative_search).to eq 1
         end
     end
 end
