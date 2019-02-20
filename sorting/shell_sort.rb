@@ -1,5 +1,6 @@
 # Time Complexity: O(n^3/2)
 # Space: O(1)
+# Stable: No
 # Extension of insertion sort
 
 require_relative 'sort.rb'

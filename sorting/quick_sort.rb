@@ -1,5 +1,6 @@
-# Time Complexity: O(nlogn), Worst Case O(n^2)
-# Space: O(1)
+# Time Complexity: O(nlogn)
+# Space: O(logn)
+# Stable: No
 # Divide and conquer 
 
 require_relative 'sort.rb'

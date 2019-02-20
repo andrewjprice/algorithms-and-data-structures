@@ -1,6 +1,7 @@
 # Recursive Top Down Implementation
 # Time Complexity: O(nlogn)
 # Space: O(n)
+# Stable: Yes
 # Divide and conquer, useful for sorting linked lists
 
 require_relative 'sort.rb'

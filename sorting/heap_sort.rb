@@ -1,5 +1,6 @@
 # Time Complexity: O(nlogn)
 # Space: O(1)
+# Stable: No
 
 require_relative 'sort.rb'
 

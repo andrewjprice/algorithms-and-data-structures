@@ -1,5 +1,6 @@
-# Time Complexity: Quadratic O(n^2)
+# Time Complexity: Between O(n) and O(n^2)
 # Space: O(1)
+# Stable: Yes
 # Useful when number of elements is small
 
 require_relative 'sort.rb'

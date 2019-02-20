@@ -1,5 +1,6 @@
 # Time Complexity: O(n^2)
 # Space: O(1)
+# Stable: No
 # Useful when number of elements is small
 
 require_relative 'sort.rb'
