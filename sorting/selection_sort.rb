@@ -2,29 +2,25 @@
 # Space: O(1)
 # Stable: No
 # Useful when number of elements is small
+#
+# [1,2,3,4,5].selection_sort! => [3,5,1,2,4]
 
 require_relative 'sort.rb'
 
-class SelectionSort
+class Array
     include Sort
 
-    attr_reader :set
-
-    def initialize(set)
-        @set = set
-    end
-
-    def sort
-        n = set.size - 1
+    def selection_sort!
+        n = self.size - 1
         
         n.times do |i|
             min = i
-            (i+1).upto(n) do |j|
-                min = j if less(set, j, min)
+            (i + 1).upto(n) do |j|
+                min = j if less(self, j, min)
             end
-            swap(set, i, min)
+            swap(self, i, min)
         end
 
-        set
+        self
     end
 end

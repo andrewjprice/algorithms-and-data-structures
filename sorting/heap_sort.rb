@@ -1,44 +1,42 @@
 # Time Complexity: O(nlogn)
 # Space: O(1)
 # Stable: No
+#
+# [3,5,1,2,4].heap_sort! => [1,2,3,4,5]
 
 require_relative 'sort.rb'
 
-class HeapSort
+class Array
     include Sort
 
-    attr_reader :set, :size
+    def heap_sort!
+        n = self.size - 1
 
-    def initialize(set)
-        @set = set
-        @size = set.size - 1
-    end
-
-    def sort
-        (size-2/2).downto(0) do |i|
-            sink(i, size)
+        (n - 2 / 2).downto(0) do |i|
+            sink(i, n)
         end
         
-        j = size
+        j = n
 
         while (j > 0) do
-            swap(set, 0, j)
+            swap(self, 0, j)
             j -= 1
             sink(0, j)
         end
 
-        set
+        self
     end
 
     private
 
     def sink(i, n)
         k = i
-        while (2*k+1 <= n) do 
-            j = 2*k+1
-            j += 1 if (j < n && less(set, j, j+1))
-            break if less(set, j, k)
-            swap(set, k, j)
+
+        while (2 * k + 1 <= n) do 
+            j = 2 * k + 1
+            j += 1 if (j < n && less(self, j, j+1))
+            break if less(self, j, k)
+            swap(self, k, j)
             k = j
         end
     end

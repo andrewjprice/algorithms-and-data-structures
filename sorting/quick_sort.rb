@@ -2,52 +2,51 @@
 # Space: O(logn)
 # Stable: No
 # Divide and conquer 
+#
+# [3,5,1,2,4].quick_sort! => [1,2,3,4,5]
 
 require_relative 'sort.rb'
 
-class QuickSort
+class Array
     include Sort
 
-    def initialize(set)
-        @set = set
-    end
-
-    def sort
-        shuffle_set = @set.shuffle
-        sort_list(shuffle_set, 0, @set.size - 1)
+    def quick_sort!
+        self.shuffle!
+        quick_sort(0, self.size - 1)
+        self
     end
 
     private
 
-    def sort_list(list, low, high)
-        return list if high <= low
+    def quick_sort(low, high)
+        return self if high <= low
 
-        j = partition(list, low, high)
-        sort_list(list, low, j-1)
-        sort_list(list, j+1, high)
+        j = partition!(low, high)
+        quick_sort(low, j - 1)
+        quick_sort(j + 1, high)
     end
 
-    def partition(a, low, high)
+    def partition!(low, high)
         i = low
         l = low + 1
         r = high
 
         while true do
-            until a[l] > a[i] do
+            until self[l] > self[i] do
                 break if l >= high
                 l += 1
             end
 
-            until a[r] < a[i] do
+            until self[r] < self[i] do
                 break if r <= low
                 r -= 1
             end
             
             if (l >= r)
-                swap(a, i, r)
+                swap(self, i, r)
                 break
             else
-                swap(a, l, r)
+                swap(self, l, r)
             end
         end
         r

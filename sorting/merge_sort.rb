@@ -3,30 +3,21 @@
 # Space: O(n)
 # Stable: Yes
 # Divide and conquer, useful for sorting linked lists
+#
+# [3,5,1,2,4].merge_sort! => [1,2,3,4,5]
 
 require_relative 'sort.rb'
 
-class MergeSort
+class Array
     include Sort
 
-    attr_reader :set
+    def merge_sort!
+        return self if self.size <= 1
 
-    def initialize(set)
-        @set = set
-    end
-
-    def sort
-        sort_list(set)
-    end
-
-    private
-
-    def sort_list(list)
-        return list if list.size <= 1
-        high = list.size - 1
+        high = self.size - 1
         mid = high / 2
-        left = sort_list(list[0..mid])
-        right = sort_list(list[mid+1..high])
+        left = self[0..mid].merge_sort!
+        right = self[mid + 1..high].merge_sort!
 
         merge(left, right)
     end
