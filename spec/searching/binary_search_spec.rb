@@ -1,19 +1,17 @@
 require_relative '../../searching/binary_search.rb'
 
-describe BinarySearch do
-    subject { described_class.new(sorted_list, 40) }
-
+describe Array do
     let(:sorted_list) { [0,40,50,60,70] }
 
-    describe '#recursive_search' do
+    describe '#rbinary_search!' do
         it 'returns key index' do
-            expect(subject.recursive_search).to eq 1
+            expect(sorted_list.rbinary_search!(40)).to eq 1
         end
     end
 
-    describe '#iterative_search' do
+    describe '#binary_search!' do
         it 'returns key index' do
-            expect(subject.iterative_search).to eq 1
+            expect(sorted_list.binary_search!(40)).to eq 1
         end
     end
 end
