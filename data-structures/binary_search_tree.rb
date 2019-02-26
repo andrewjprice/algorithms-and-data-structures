@@ -1,3 +1,8 @@
+# Binary Search Tree
+# Insert: Worst: O(n), Average: O(logn)
+# Search: Worst: O(n), Average: O(logn)
+# Delete: Worst: O(n), Average: O(logn)
+
 class Node
     attr_accessor :left, :right, :value
 
@@ -14,17 +19,46 @@ class BinarySearchTree
         @root = nil
     end
 
-    def insert(value)
-        if @root.nil?
+    def insert(node=@root, value)
+        if node.nil?
             @root = Node.new(value)
-        else
-            add(@root, value)
+        elsif value == node.value
+            return node
+        elsif value < node.value 
+            node.left = Node.new(value) if node.left.nil?
+            insert(node.left, value)
+        elsif value > node.value
+            node.right = Node.new(value) if node.right.nil?
+            insert(node.right, value)
         end
     end
 
-    def delete(value)
-        return @root if @root.nil?
-        remove(@root, value)
+    def delete(node=@root, value)
+        return node if node.nil?
+
+        if value < node.value
+            node.left = delete(node.left, value)
+        elsif value > node.value
+            node.right = delete(node.right, value)
+        else
+            # No children
+            if node.left.nil? && node.right.nil?
+                node = nil
+            # One child
+            elsif node.left.nil?
+                node = node.right
+                node.right = nil
+            elsif node.right.nil?
+                node = node.left
+                node.left = nil
+            # Two child
+            else
+                temp = find_min(node.right)
+                node.value = temp.value
+                node.right = delete(node.right, temp.value)
+            end
+        end
+        return node
     end
 
     def search(value)
@@ -64,44 +98,6 @@ class BinarySearchTree
     end
 
     private
-
-    def add(node, new_value)
-        return node if new_value == node.value
-
-        if new_value < node.value 
-            node.left = Node.new(new_value) if node.left.nil?
-            add(node.left, new_value)
-        elsif new_value > node.value
-            node.right = Node.new(new_value) if node.right.nil?
-            add(node.right, new_value)
-        end
-    end
-
-    def remove(node, value)
-        if value < node.value
-            node.left = remove(node.left, value)
-        elsif value > node.value
-            node.right = remove(node.right, value)
-        else
-            # No children
-            if node.left.nil? && node.right.nil?
-                node = nil
-            # One child
-            elsif node.left.nil?
-                node = node.right
-                node.right = nil
-            elsif node.right.nil?
-                node = node.left
-                node.left = nil
-            # Two child
-            else
-                temp = find_min(node.right)
-                node.value = temp.value
-                node.right = remove(node.right, temp.value)
-            end
-        end
-        return node
-    end
 
     def find_min(node)
         if node.left
